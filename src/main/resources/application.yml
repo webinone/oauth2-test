@@ -1,0 +1,12 @@
+server:
+  port: 8888
+
+spring:
+  profiles:
+    active: localhost
+  jpa.properties.hibernate.jdbc.time_zone: UTC
+
+security:
+  oauth2:
+    jwt :
+      signkey : 123@#$

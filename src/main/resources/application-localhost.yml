@@ -1,0 +1,32 @@
+
+
+spring:
+  profiles: localhost
+  datasource:
+    url: jdbc:postgresql://localhost:5432/springdata
+    #        url: jdbc:postgresql://dev-db-agent.c27zbtd7mwqu.ap-northeast-2.rds.amazonaws.com:5432/devagent
+    username: keesun
+    password: pass
+    schema : classpath*:db/schema.sql
+#    initialization-mode: always
+    hikari:
+      maxPoolSize: 3
+      minimumIdle: 3
+      idleTimeout: 30000
+      maxLifetime: 2000000
+      connectionTimeout: 30000
+      poolName: zoo-main
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        jdbc.lob.non_contextual_creation: true
+        format_sql: true
+        physical_naming_strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+        implicit_naming_strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+logging:
+  level:
+    root : info
